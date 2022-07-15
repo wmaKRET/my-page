@@ -35,13 +35,12 @@ html {
 }
 
 body {
-    background-color: $background;
+    background: $background;
     color: $white;
 }
 
 section, header {
     height: 90vh;
-    margin: 1em 0;
 
     & > h2 {
         margin-bottom: 2em;
@@ -61,6 +60,12 @@ h1, h2, h3, h4, h5 {
 
 h1 {
     font-size: 2rem;
+}
+
+img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
 }
 
 a {
@@ -109,7 +114,7 @@ a {
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 601px) {
     .container {
         width: $width-md;
     }
@@ -121,5 +126,108 @@ a {
     }
 }
 
+/* // -- // MIXINS // -- // */
+
+@mixin inset-shadow {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+
 /* // -- // HEADER STYLES + MEDIA QUERIES // -- // */
 
+.header {
+    margin-top: 6em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__content {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        align-items: center;
+    }
+
+    &__img {
+        height: 16em;
+        width: 14em;
+        margin: 0 0.5em;
+        padding: 0;
+        position: relative;
+        background-color: $color;
+        transition: $transition;
+
+        &:hover {
+            background-color: $white;
+        }
+
+        &-shadowtop {
+            @include inset-shadow();
+            box-shadow: inset 0px 40px 10px -5px $background;
+        }
+
+        &-shadowbottom {
+            @include inset-shadow();
+            box-shadow: inset 0px -40px 10px -5px $background;
+        }
+
+        &-photo {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            border: solid 0.5em $background;
+        }
+    }
+
+    &__panel {
+        margin: 0 0.5em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+    &__socials {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        display: flex;
+        flex-direction: column;
+        scale: 2;
+    }
+
+    &__scroll {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: rotate(90deg);
+        color: $color;
+        transition: $transition;
+        cursor: pointer;
+
+        &:hover {
+            color: $white;
+        }
+    }
+}
+ 
+@media screen and (max-width: 600px) {
+    .header {
+        &__content {
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+
+        &__panel {
+            align-items: center;
+        }
+
+        &__socials {
+            display: none;
+        }
+    }
+}
+
+/* // -- // HEADER STYLES + MEDIA QUERIES // -- // */
