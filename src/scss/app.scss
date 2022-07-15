@@ -1,0 +1,125 @@
+/* // -- // VARIABLES // -- // */
+
+$background: #1f1f38;
+$background2: #2c2c6c;
+$color: #3db5ff;
+$color2: rgba(77, 181, 255, 0.4);
+$white: #ffffff;
+$light: rgba(255, 255, 255, 0.6);
+
+$transition: all 0.4s ease;
+
+$width-lg: 70%;
+$width-md: 80%;
+$width-sm: 90%;
+
+/* // -- // FONT IMPORT // -- // */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+/* // -- // GENERAL STYLES // -- // */
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: $background;
+    color: $white;
+}
+
+section, header {
+    height: 90vh;
+    margin: 1em 0;
+
+    & > h2 {
+        margin-bottom: 2em;
+        text-align: center;
+        color: $white;
+    }
+
+    & > h5 {
+        text-align: center;
+        color: $light;
+    }
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: $color;
+
+    &:hover {
+        color: $white;
+        transition: $transition;
+    }
+}
+
+.container {
+    margin: 1em auto 0 auto;
+}
+
+.text-light {
+    color: $light;
+}
+
+.btn {
+    width: max-content;
+    padding: 1em 1.5em;
+    color: $color;
+    border: solid 1px $color;
+    border-radius: 0.5em;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $white;
+        color: $background;
+        border-color: $white;
+    }
+
+    &-primary {
+        background-color: $color;
+        color: $background;
+    }
+}
+
+/* // -- // GENERAL MEDIA QUERIES // -- // */
+
+@media screen and (min-width: 1025px) {
+    .container {
+        width: $width-lg;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: $width-md;
+    }
+}
+ 
+@media screen and (max-width: 600px) {
+    .container {
+        width: $width-sm;
+    }
+}
+
+/* // -- // HEADER STYLES + MEDIA QUERIES // -- // */
+
