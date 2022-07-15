@@ -8,6 +8,7 @@ $white: #ffffff;
 $light: rgba(255, 255, 255, 0.6);
 
 $transition: all 0.4s ease;
+$transition-header: all 1s cubic-bezier(.10,1.1,.10,.90);
 
 $width-lg: 70%;
 $width-md: 80%;
@@ -37,24 +38,30 @@ html {
 body {
     background: $background;
     color: $white;
+    overflow: hidden;
 }
 
-section, header {
+section,
+header {
     height: 90vh;
 
-    & > h2 {
+    &>h2 {
         margin-bottom: 2em;
         text-align: center;
         color: $white;
     }
 
-    & > h5 {
+    &>h5 {
         text-align: center;
         color: $light;
     }
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-weight: 500;
 }
 
@@ -119,7 +126,7 @@ a {
         width: $width-md;
     }
 }
- 
+
 @media screen and (max-width: 600px) {
     .container {
         width: $width-sm;
@@ -196,23 +203,35 @@ a {
         display: flex;
         flex-direction: column;
         scale: 2;
+        
+        & > a {
+            transform: translateY(1000px);
+        }
+
+        .load {
+            transition: $transition-header;
+            transform: translateY(0);
+        }
     }
 
     &__scroll {
         position: absolute;
         right: 0;
         top: 50%;
+        display: flex;
         transform: rotate(90deg);
-        color: $color;
-        transition: $transition;
-        cursor: pointer;
+        
+        & > a {
+            transform: translateX(1000px);
+        }
 
-        &:hover {
-            color: $white;
+        .load {
+            transition: $transition-header;
+            transform: translateX(0);
         }
     }
 }
- 
+
 @media screen and (max-width: 600px) {
     .header {
         &__content {

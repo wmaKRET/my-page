@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 import MyPhoto from "../assets/me.png"
 import CV from "../assets/cv.pdf"
@@ -6,6 +6,20 @@ import CV from "../assets/cv.pdf"
 import { FaLinkedin, FaGithub } from "react-icons/fa"
 
 function Header() {
+    const [pageIsLoaded, setPageIsLoaded] = useState(false)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setPageIsLoaded(true)
+        }, 1)
+    }, [])
+
+    function loadPageClass(){
+        return pageIsLoaded
+            ? 'load'
+            : ''
+    }
+
     return (
         <header className="header">
             <h5>Hello! My name is</h5>
@@ -27,21 +41,28 @@ function Header() {
             </div>
             <div className="header__socials">
                 <a 
-                    className="header__socials-icon" 
+                    className={loadPageClass()}
                     href="https://www.linkedin.com/in/wojciech-kret/" 
                     target="_blank"
                 >
                     <FaLinkedin />
                 </a>
                 <a 
-                    className="header__socials-icon" 
+                    className={loadPageClass()}
                     href="https://github.com/wmaKRET" 
                     target="_blank"
                 >
                     <FaGithub />
                 </a>
             </div>
-            <p className="header__scroll">scroll down</p>
+            <div className="header__scroll">
+                <a 
+                    className={loadPageClass()}
+                    href="#contact"
+                >
+                    scroll down
+                </a>
+            </div>
         </header>
     )
 }
