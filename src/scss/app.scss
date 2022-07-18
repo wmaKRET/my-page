@@ -43,7 +43,7 @@ body {
 
 section,
 header {
-    height: 90vh;
+    height: 70vh;  // change to 90 or 100 !!! 
 
     &>h2 {
         margin-bottom: 2em;
@@ -245,6 +245,42 @@ a {
 
         &__socials {
             display: none;
+        }
+
+        &__scroll {
+            display: none;
+        }
+    }
+}
+
+/* // -- // NAVBAR STYLES + MEDIA QUERIES // -- // */
+
+.navbar {
+    width: max-content;
+    padding: 0.5em 1em;
+    position: fixed;
+    z-index: 2;
+    bottom: 5em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1em;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0.5em;
+    backdrop-filter: blur(15px);
+
+    &__item {
+        padding: 0.5em 0.5em 0 0.5em;
+        background: transparent;
+        border-radius: 0.5em;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        &.active {
+            background-color: $background;
+            color: $white;
         }
     }
 }
