@@ -41,9 +41,13 @@ body {
     overflow: hidden;
 }
 
+section {
+    height: 90vh;
+}
+
 section,
 header {
-    height: 90vh;
+    padding-top: 6em;
 
     &>h2 {
         margin-bottom: 2em;
@@ -121,7 +125,7 @@ a {
     }
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 601px) and (max-width: 1024px) {
     .container {
         width: $width-md;
     }
@@ -146,11 +150,19 @@ a {
 /* // -- // HEADER STYLES + MEDIA QUERIES // -- // */
 
 .header {
-    margin-top: 6em;
+    height: 60vh;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    & > h2 {
+        margin-bottom: 0;
+    }
+
+    .h2margin{
+        margin-bottom: 2em;
+    }
 
     &__content {
         display: grid;
@@ -195,10 +207,56 @@ a {
         flex-direction: column;
         gap: 0.5em;
     }
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        &__content {
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+
+        &__panel {
+            align-items: center;
+        }
+    }
+}
+
+/* // -- // NAVBAR STYLES + MEDIA QUERIES // -- // */
+
+.navbar {
+    &__panel {
+        width: max-content;
+        padding: 0.5em 1em;
+        position: fixed;
+        z-index: 2;
+        bottom: 5em;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 1em;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 0.5em;
+    }
+
+    &__item {
+        padding: 0.5em 0.5em 0 0.5em;
+        background: transparent;
+        border-radius: 0.5em;
+        transition: $transition;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        &.active {
+            background-color: $background;
+            color: $white;
+        }
+    }
 
     &__socials {
         position: absolute;
-        left: 0;
         top: 50%;
         display: flex;
         flex-direction: column;
@@ -216,7 +274,6 @@ a {
 
     &__scroll {
         position: absolute;
-        right: 0;
         top: 50%;
         display: flex;
         transform: rotate(90deg);
@@ -232,56 +289,38 @@ a {
     }
 }
 
+@media screen and (min-width: 1025px) {
+    .navbar {
+        &__socials {
+            left: 8em;
+        }
+
+        &__scroll {
+            right: 6em;
+        }
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .navbar {
+        &__socials {
+            left: 3em;
+        }
+
+        &__scroll {
+            right: 1em;
+        }
+    }
+}
+
 @media screen and (max-width: 600px) {
-    .header {
-        &__content {
-            grid-template-columns: 1fr;
-            justify-items: center;
-        }
-
-        &__panel {
-            align-items: center;
-        }
-
+    .navbar {
         &__socials {
             display: none;
         }
 
         &__scroll {
             display: none;
-        }
-    }
-}
-
-/* // -- // NAVBAR STYLES + MEDIA QUERIES // -- // */
-
-.navbar {
-    width: max-content;
-    padding: 0.5em 1em;
-    position: fixed;
-    z-index: 2;
-    bottom: 5em;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1em;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 0.5em;
-    backdrop-filter: blur(15px);
-
-    &__item {
-        padding: 0.5em 0.5em 0 0.5em;
-        background: transparent;
-        border-radius: 0.5em;
-        transition: $transition;
-
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        &.active {
-            background-color: $background;
-            color: $white;
         }
     }
 }
