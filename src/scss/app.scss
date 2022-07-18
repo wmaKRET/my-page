@@ -2,10 +2,10 @@
 
 $background: #1f1f38;
 $background2: #2c2c6c;
-$color: #3db5ff;
+$color: rgb(206, 82, 51);//#3db5ff;
 $color2: rgba(77, 181, 255, 0.4);
 $white: #ffffff;
-$light: rgba(255, 255, 255, 0.6);
+$light: rgb(213, 235, 243);//rgba(255, 255, 255, 0.6);
 
 $transition: all 0.4s ease;
 $transition-header: all 1s cubic-bezier(.10,1.1,.10,.90);
@@ -322,6 +322,92 @@ a {
 
         &__scroll {
             display: none;
+        }
+    }
+}
+
+/* // -- // SKILLS SECTION STYLES + MEDIA QUERIES // -- // */
+
+.skills {
+
+    &__content {
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        gap: 1em;
+    }
+
+    &__container {
+        width: 16em;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        transition: $transition;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+
+        & > h3 {
+            padding: 0.5em;
+            background-color: $color;
+            border-top-left-radius: 0.5em;
+            border-top-right-radius: 0.5em;
+            text-align: center;
+            letter-spacing: 0.1em;
+            cursor: default;
+            color: $background2;
+        }
+
+        &:hover {
+            box-shadow: 0 0 20px $color;
+        }
+    }
+
+    &__list {
+        border: 1px solid $color;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 0.5em 1em;
+        transition: $transition;
+        color: $light;
+
+        & > h4 {
+            padding-left: 0.5em;
+        }
+
+        &:hover {
+            color: $white;
+            cursor: default;
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .skills {
+        &__content {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media screen and (min-width: 651px) and (max-width: 1024px) {
+    .skills {
+
+        &__content {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .skills {
+
+        &__content {
+            grid-template-columns: 1fr;
         }
     }
 }
