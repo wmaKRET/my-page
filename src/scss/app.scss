@@ -248,6 +248,7 @@ a {
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.4);
+            color: $light;
         }
 
         &.active {
@@ -413,3 +414,38 @@ a {
 }
 
 /* // -- // HEADER STYLES + MEDIA QUERIES // -- // */
+
+
+/* // -- // FOOTER STYLES + MEDIA QUERIES // -- // */
+
+.footer {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient($background, $color);
+    color: $background;
+
+    &__title {
+        position: absolute;
+        bottom: 1em;
+        left: 1em;
+        font-size: 0.75rem;
+    }
+
+    &__socials {
+        position: absolute;
+        bottom: 1em;
+        right: 2em;
+
+        & > a {
+            padding: 0 1em;
+            color: $background;
+
+            &:hover {
+                color: $background2;
+            }
+        }
+    }
+}
