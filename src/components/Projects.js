@@ -3,7 +3,8 @@ import React from "react"
 function Projects(){
     return (
         <section className="projects" id="projects">
-            <h1>projects</h1>
+            <h5>my</h5>
+            <h2>Projects</h2>
         </section>
     )
 }
