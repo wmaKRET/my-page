@@ -15,8 +15,8 @@ function ContextProvider({ children }){
             .catch(error => console.log(error))
     }, [])
 
-    function handleNavIconChange(sectionID) {
-        setActiveNavIcon(sectionID)
+    function handleNavIconChange(section) {
+        setActiveNavIcon(section)
     }
 
     return (

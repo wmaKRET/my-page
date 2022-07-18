@@ -37,7 +37,7 @@ function NavIcon({section}){
             key={section.id}
             href={section.url}
             className={isIconActive(section.url)}
-            onClick={() => handleNavIconChange(section.id)}
+            onClick={() => handleNavIconChange(section.url)}
         >
             {whichIcon(section.icon)}
         </a>
