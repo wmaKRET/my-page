@@ -1,5 +1,6 @@
 import React from "react"
 
+import Hero from "./components/Hero"
 import Header from "./components/Header"
 import Navbar from "./components/Navbar"
 import AboutMe from "./components/AboutMe"
@@ -13,14 +14,18 @@ import "./scss/app.scss"
 function App() {
   return (
     <>
+      <Hero />
       <div className="container">
-        <Header />
+        
         <Navbar />
-        <AboutMe />
+      </div>
+      <AboutMe />
+      <div className="container">
         <Skills />
         <Projects />
         <Contact />
       </div>
+
       <Footer />
     </>
 

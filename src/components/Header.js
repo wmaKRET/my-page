@@ -5,7 +5,7 @@ import CV from "../assets/cv.pdf"
 
 function Header() {
     return (
-        <header className="header">
+        <section className="header">
             <h5>Hello! My name is</h5>
             <h2>Wojciech Kret</h2>
             <h5 className="h2margin">and currently I am looking for a job as a Frontend Developer</h5>
@@ -24,7 +24,7 @@ function Header() {
                     <a className="btn" href="#contact">Contact Me</a>
                 </div>
             </div>
-        </header>
+        </section>
     )
 }
 

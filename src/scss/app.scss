@@ -43,10 +43,6 @@ body {
 
 section {
     height: 90vh;
-}
-
-section,
-header {
     padding-top: 6em;
 
     &>h2 {
@@ -112,11 +108,6 @@ a {
         color: $background;
         border-color: $light;
     }
-
-    &-primary {
-        background-color: $color;
-        color: $background;
-    }
 }
 
 /* // -- // GENERAL MEDIA QUERIES // -- // */
@@ -149,10 +140,10 @@ a {
     position: absolute;
 }
 
-/* // -- // HEADER STYLES + MEDIA QUERIES // -- // */
+/* // -- // HERO STYLES + MEDIA QUERIES // -- // */
 
-.header {
-    height: 60vh;
+.hero {
+    height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -162,64 +153,44 @@ a {
         margin-bottom: 0;
     }
 
-    .h2margin{
-        margin-bottom: 2em;
+    &-margin{
+        margin: 0 2em 4em 2em;
     }
 
     &__content {
         display: grid;
-        grid-template-columns: 60% 40%;
-        align-items: center;
+        gap: 2em;
+        text-align: center;
     }
+}
 
-    &__img {
-        height: 16em;
-        width: 14em;
-        margin: 0 0.5em;
-        padding: 0;
-        position: relative;
-        background-color: $color;
-        transition: $transition;
+.btn-hero {
+    width: 10em;
+    padding: 1em 1.5em;
+    color: $light;
+    border: 1px solid $light;
+    border-radius: 0.5em;
+    box-shadow: 0 0 20px $background;
 
-        &:hover {
-            background-color: $light;
-        }
-
-        &-shadowtop {
-            @include inset-shadow();
-            box-shadow: inset 0px 40px 10px -5px $background;
-        }
-
-        &-shadowbottom {
-            @include inset-shadow();
-            box-shadow: inset 0px -40px 10px -5px $background;
-        }
-
-        &-photo {
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            border: solid 0.5em $background;
-        }
+    &:hover {
+        background-color: $light;
+        color: $background;
     }
+}
 
-    &__panel {
-        margin: 0 0.5em;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5em;
+@media screen and (min-width: 601px) {
+    .hero {
+        &__content {
+            grid-template-columns: 1fr 1fr;
+        }
     }
 }
 
 @media screen and (max-width: 600px) {
-    .header {
+    .hero {
         &__content {
             grid-template-columns: 1fr;
-            justify-items: center;
-        }
 
-        &__panel {
-            align-items: center;
         }
     }
 }
@@ -259,11 +230,15 @@ a {
     }
 
     &__socials {
-        position: absolute;
+        position: fixed;
         top: 50%;
+        z-index: 3;
         display: flex;
         flex-direction: column;
         scale: 2;
+        // padding: 1em 0.5em;
+        // background-color: rgba(0, 0, 0, 0.3);
+        // border-radius: 0.5em;
         
         & > a {
             transform: translateY(1000px);
@@ -276,8 +251,9 @@ a {
     }
 
     &__scroll {
-        position: absolute;
+        position: fixed;
         top: 50%;
+        z-index: 3;
         display: flex;
         transform: rotate(90deg);
         
@@ -325,6 +301,22 @@ a {
         &__scroll {
             display: none;
         }
+    }
+}
+
+/* // -- // ABOUT SECTION STYLES + MEDIA QUERIES // -- // */
+
+.hero {
+    position: relative;
+    background-image: url(../assets/hero-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    &__shadowbox {
+        @include inset-shadow();
+        box-shadow: inset 0px 0px 10px 0.5em $background;
     }
 }
 
