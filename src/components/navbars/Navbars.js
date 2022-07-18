@@ -5,7 +5,14 @@ import { FaHome, FaLinkedin, FaGithub, FaArrowAltCircleUp, FaArrowAltCircleDown 
 import { FiMail } from "react-icons/fi"
 
 function Navbar() {
-    const [activeNavIcon, setActiveNavIcon] = useState('#')
+    const pageSections = [
+        { id: 1, url: "#", icon: (<FaHome size={28} />) },
+        { id: 2, url: "#about", icon: (<BsPersonCircle size={28} />) },
+        { id: 3, url: "#skills", icon: (<BsListCheck size={28} />) },
+        { id: 4, url: "#projects", icon: (<BsFolderCheck size={28} />) },
+        { id: 5, url: "#contact", icon: (<FiMail size={28} />) },
+    ]
+    const [activeNavIcon, setActiveNavIcon] = useState(pageSections[0].url)
     const [pageHasLoaded, setPageIsLoaded] = useState(false)
 
     useEffect(() => {
@@ -24,52 +31,29 @@ function Navbar() {
         setActiveNavIcon(value)
     }
 
-    function loadSidePanels(panel) {
+    function animateSidePanels(panel) {
         return pageHasLoaded
             ? `navbar__${panel} load`
             : `navbar__${panel}`
     }
 
+    const iconElements = pageSections.map(section => (
+        <a
+            key={section.id}
+            href={section.url}
+            className={isIconActive(section.url)}
+            onClick={() => handleNavIconChange(section.url)}
+        >
+            {section.icon}
+        </a>
+    ))
+
     return (
         <nav className="navbar">
             <div className="navbar__panel">
-                <a
-                    href="#"
-                    className={isIconActive('#')}
-                    onClick={() => handleNavIconChange('#')}
-                >
-                    <FaHome size={28} />
-                </a>
-                <a
-                    href="#about"
-                    className={isIconActive('#about')}
-                    onClick={() => handleNavIconChange('#about')}
-                >
-                    <BsPersonCircle size={28} />
-                </a>
-                <a
-                    href="#skills"
-                    className={isIconActive(`#skills`)}
-                    onClick={() => handleNavIconChange(`#skills`)}
-                >
-                    <BsListCheck size={28} />
-                </a>
-                <a
-                    href="#projects"
-                    className={isIconActive('#projects')}
-                    onClick={() => handleNavIconChange('#projects')}
-                >
-                    <BsFolderCheck size={28} />
-                </a>
-                <a
-                    href="#contact"
-                    className={isIconActive('#contact')}
-                    onClick={() => handleNavIconChange('#contact')}
-                >
-                    <FiMail size={28} />
-                </a>
+                {iconElements}
             </div>
-            <div className={loadSidePanels('socials')}>
+            <div className={animateSidePanels('socials')}>
                 <a
                     href="https://www.linkedin.com/in/wojciech-kret/"
                     target="_blank"
@@ -83,7 +67,7 @@ function Navbar() {
                     <FaGithub />
                 </a>
             </div>
-            <div className={loadSidePanels('scroll')}>
+            <div className={animateSidePanels('scroll')}>
                 <a
                     href="#"
                     onClick={() => handleNavIconChange('#contact')}
