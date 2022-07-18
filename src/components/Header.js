@@ -8,7 +8,7 @@ function Header() {
         <header className="header">
             <h5>Hello! My name is</h5>
             <h2>Wojciech Kret</h2>
-            <h5 className="h2margin">and currently I am looking for a job as Frontend Developer</h5>
+            <h5 className="h2margin">and currently I am looking for a job as a Frontend Developer</h5>
             <div className="header__content">
                 <div className="header__img">
                     <img 
