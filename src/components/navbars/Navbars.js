@@ -7,7 +7,7 @@ import { FaLinkedin, FaGithub, FaArrowAltCircleUp, FaArrowAltCircleDown } from "
 
 function Navbar() {
     const [pageHasLoaded, setPageIsLoaded] = useState(false)
-    const { sections } = useContext(Context)
+    const { sections, activeNavIcon, handleNavIconChange } = useContext(Context)
 
     useEffect(() => {
         setTimeout(() => {
@@ -46,14 +46,12 @@ function Navbar() {
             </div>
             <div className={animateSidePanels('scroll')}>
                 <a
-                    href="#"
-                    onClick={() => console.log('#contact')}
+                    href=""
                 >
                     <FaArrowAltCircleUp />
                 </a>
                 <a
-                    href="#contact"
-                    onClick={() => console.log('#contact')}
+                    href=""
                 >
                     <FaArrowAltCircleDown />
                 </a>
