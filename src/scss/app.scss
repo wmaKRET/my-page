@@ -2,13 +2,13 @@
 
 $background: #1f1f38;
 $background2: #2c2c6c;
-$color: rgb(206, 82, 51);//#3db5ff;
+$color: rgb(206, 82, 51); //#3db5ff;
 $color2: rgba(77, 181, 255, 0.4);
 $white: #ffffff;
-$light: rgb(213, 235, 243);//rgba(255, 255, 255, 0.6);
+$light: rgb(213, 235, 243); //rgba(255, 255, 255, 0.6);
 
 $transition: all 0.4s ease;
-$transition-header: all 1s cubic-bezier(.10,1.1,.10,.90);
+$transition-header: all 1s cubic-bezier(.10, 1.1, .10, .90);
 
 $width-lg: 70%;
 $width-md: 80%;
@@ -29,16 +29,16 @@ html {
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: $background;
-    color: $white;
     overflow: hidden;
+    background-color: $background;
+    color: $white;
 }
 
 section {
@@ -53,8 +53,8 @@ section {
     }
 
     &>h5 {
-        text-align: center;
         color: $light;
+        text-align: center;
     }
 }
 
@@ -71,7 +71,7 @@ h1 {
     font-size: 2rem;
 }
 
-img {
+img { // ???????????????????
     display: block;
     height: 100%;
     object-fit: cover;
@@ -83,7 +83,7 @@ a {
     transition: $transition;
 
     &:hover {
-        color: $light; 
+        color: $light;
     }
 }
 
@@ -133,28 +133,33 @@ a {
 /* // -- // MIXINS // -- // */
 
 @mixin inset-shadow {
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    position: absolute;
 }
 
 /* // -- // HERO STYLES + MEDIA QUERIES // -- // */
 
 .hero {
-    height: 100vh;
     position: relative;
+    height: 102vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    & > h2 {
+    &>h2 {
         margin-bottom: 0;
     }
 
-    &-margin{
+    &-margin {
         margin: 0 2em 4em 2em;
+    }
+
+    &-shadowbox {
+        @include inset-shadow();
+        box-shadow: inset 0px -30px 10px -5px $background;
     }
 
     &__content {
@@ -162,19 +167,21 @@ a {
         gap: 2em;
         text-align: center;
     }
-}
 
-.btn-hero {
-    width: 10em;
-    padding: 1em 1.5em;
-    color: $light;
-    border: 1px solid $light;
-    border-radius: 0.5em;
-    box-shadow: 0 0 20px $background;
+    &__btn {
+        position: relative;
+        z-index: 1;
+        width: 10em;
+        padding: 1em 1.5em;
+        color: $light;
+        border: 1px solid $light;
+        border-radius: 0.5em;
+        box-shadow: 0 0 20px $background;
 
-    &:hover {
-        background-color: $light;
-        color: $background;
+        &:hover {
+            background-color: $light;
+            color: $background;
+        }
     }
 }
 
@@ -229,49 +236,29 @@ a {
         }
     }
 
-    &__socials {
+    &__socials, &__scroll {
         position: fixed;
         top: 50%;
-        z-index: 3;
+        z-index: 2;
         display: flex;
         flex-direction: column;
         scale: 2;
-        // padding: 1em 0.5em;
-        // background-color: rgba(0, 0, 0, 0.3);
-        // border-radius: 0.5em;
-        
-        & > a {
-            transform: translateY(1000px);
-        }
-
-        .load {
-            transition: $transition-header;
-            transform: translateY(0);
-        }
+        padding: 0.5em 0.5em 0 0.5em;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 0.5em;
+        transform: translateY(1000px);
+        transition: $transition-header;
     }
 
-    &__scroll {
-        position: fixed;
-        top: 50%;
-        z-index: 3;
-        display: flex;
-        transform: rotate(90deg);
-        
-        & > a {
-            transform: translateX(1000px);
-        }
-
-        .load {
-            transition: $transition-header;
-            transform: translateX(0);
-        }
+    .load {
+        transform: translateY(0);
     }
 }
 
 @media screen and (min-width: 1025px) {
     .navbar {
         &__socials {
-            left: 8em;
+            left: 6em;
         }
 
         &__scroll {
@@ -283,11 +270,11 @@ a {
 @media screen and (min-width: 601px) and (max-width: 1024px) {
     .navbar {
         &__socials {
-            left: 3em;
+            left: 4em;
         }
 
         &__scroll {
-            right: 1em;
+            right: 4em;
         }
     }
 }
@@ -342,7 +329,7 @@ a {
         border-top-left-radius: 0.5em;
         border-top-right-radius: 0.5em;
 
-        & > h3 {
+        &>h3 {
             padding: 0.5em;
             background-color: $color;
             border-top-left-radius: 0.5em;
@@ -369,7 +356,7 @@ a {
         transition: $transition;
         color: $light;
 
-        & > h4 {
+        &>h4 {
             padding-left: 0.5em;
         }
 
@@ -427,11 +414,11 @@ a {
         border-radius: 0.5em;
         transition: $transition;
 
-        & > h5 {
+        &>h5 {
             color: $light;
         }
 
-        & > a {
+        &>a {
             font-size: 1.25rem;
         }
 
@@ -446,7 +433,8 @@ a {
         gap: 0.75em;
         justify-self: left;
 
-        & > input, textarea {
+        &>input,
+        textarea {
             padding: 0.5em;
             background-color: $background;
             border: 1px solid $color;
@@ -464,12 +452,12 @@ a {
             }
         }
 
-        & > textarea {
+        &>textarea {
             height: 8em;
             resize: none;
         }
 
-        & > button {
+        &>button {
             width: 100%;
             background-color: $background;
             transition: $transition;
@@ -500,7 +488,7 @@ a {
         bottom: 1em;
         right: 2em;
 
-        & > a {
+        &>a {
             padding: 0 1em;
             color: $background;
 

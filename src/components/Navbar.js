@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react"
 
 import { BsPersonCircle, BsListCheck, BsFolderCheck } from "react-icons/bs"
-import { FaHome, FaLinkedin, FaGithub } from "react-icons/fa"
+import { FaHome, FaLinkedin, FaGithub, FaArrowAltCircleUp, FaArrowAltCircleDown } from "react-icons/fa"
 import { FiMail } from "react-icons/fi"
 
 function Navbar() {
     const [activeNavIcon, setActiveNavIcon] = useState('#')
-    const [pageIsLoaded, setPageIsLoaded] = useState(false)
+    const [pageHasLoaded, setPageIsLoaded] = useState(false)
 
     useEffect(() => {
         setTimeout(() => {
@@ -24,10 +24,10 @@ function Navbar() {
         setActiveNavIcon(value)
     }
 
-    function loadPageClass() {
-        return pageIsLoaded
-            ? 'load'
-            : ''
+    function loadSidePanels(panel) {
+        return pageHasLoaded
+            ? `navbar__${panel} load`
+            : `navbar__${panel}`
     }
 
     return (
@@ -69,29 +69,32 @@ function Navbar() {
                     <FiMail size={28} />
                 </a>
             </div>
-            <div className="navbar__socials">
+            <div className={loadSidePanels('socials')}>
                 <a
-                    className={loadPageClass()}
                     href="https://www.linkedin.com/in/wojciech-kret/"
                     target="_blank"
                 >
                     <FaLinkedin />
                 </a>
                 <a
-                    className={loadPageClass()}
                     href="https://github.com/wmaKRET"
                     target="_blank"
                 >
                     <FaGithub />
                 </a>
             </div>
-            <div className="navbar__scroll">
+            <div className={loadSidePanels('scroll')}>
                 <a
-                    className={loadPageClass()}
+                    href="#"
+                    onClick={() => handleNavIconChange('#contact')}
+                >
+                    <FaArrowAltCircleUp />
+                </a>
+                <a
                     href="#contact"
                     onClick={() => handleNavIconChange('#contact')}
                 >
-                    scroll down
+                    <FaArrowAltCircleDown />
                 </a>
             </div>
         </nav>
