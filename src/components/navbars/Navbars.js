@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 
-import { BsPersonCircle, BsListCheck, BsFolderCheck } from "react-icons/bs"
-import { FaHome, FaLinkedin, FaGithub, FaArrowAltCircleUp, FaArrowAltCircleDown } from "react-icons/fa"
-import { FiMail } from "react-icons/fi"
+import NavIcon from "./NavIcon"
+import { Context } from "../../Context"
+
+import { FaLinkedin, FaGithub, FaArrowAltCircleUp, FaArrowAltCircleDown } from "react-icons/fa"
 
 function Navbar() {
-    const pageSections = [
-        { id: 1, url: "#", icon: (<FaHome size={28} />) },
-        { id: 2, url: "#about", icon: (<BsPersonCircle size={28} />) },
-        { id: 3, url: "#skills", icon: (<BsListCheck size={28} />) },
-        { id: 4, url: "#projects", icon: (<BsFolderCheck size={28} />) },
-        { id: 5, url: "#contact", icon: (<FiMail size={28} />) },
-    ]
-    const [activeNavIcon, setActiveNavIcon] = useState(pageSections[0].url)
     const [pageHasLoaded, setPageIsLoaded] = useState(false)
+    const { sections } = useContext(Context)
 
     useEffect(() => {
         setTimeout(() => {
@@ -21,31 +15,14 @@ function Navbar() {
         }, 1)
     }, [])
 
-    function isIconActive(value) {
-        return activeNavIcon === value
-            ? "navbar__item active"
-            : "navbar__item"
-    }
-
-    function handleNavIconChange(value) {
-        setActiveNavIcon(value)
-    }
-
     function animateSidePanels(panel) {
         return pageHasLoaded
             ? `navbar__${panel} load`
             : `navbar__${panel}`
     }
 
-    const iconElements = pageSections.map(section => (
-        <a
-            key={section.id}
-            href={section.url}
-            className={isIconActive(section.url)}
-            onClick={() => handleNavIconChange(section.url)}
-        >
-            {section.icon}
-        </a>
+    const iconElements = sections.map(section => (
+        <NavIcon key={section.id} section={section}/>
     ))
 
     return (
@@ -70,13 +47,13 @@ function Navbar() {
             <div className={animateSidePanels('scroll')}>
                 <a
                     href="#"
-                    onClick={() => handleNavIconChange('#contact')}
+                    onClick={() => console.log('#contact')}
                 >
                     <FaArrowAltCircleUp />
                 </a>
                 <a
                     href="#contact"
-                    onClick={() => handleNavIconChange('#contact')}
+                    onClick={() => console.log('#contact')}
                 >
                     <FaArrowAltCircleDown />
                 </a>
