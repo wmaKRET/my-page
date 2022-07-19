@@ -12,7 +12,13 @@ function Hero() {
             <h2>Wojciech Kret</h2>
             <h5 className="hero-margin">and currently I am looking for a job as a Frontend Developer</h5>
             <div className="hero__content">
-                    <a className="hero__btn" href={CV}>CV</a>
+                    <a 
+                        className="hero__btn" 
+                        href={CV} 
+                        target="_blank"
+                    >
+                        CV
+                    </a>
                     <a 
                         className="hero__btn" 
                         href="#about"
