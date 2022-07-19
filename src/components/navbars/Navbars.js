@@ -6,23 +6,43 @@ import { Context } from "../../Context"
 import { FaLinkedin, FaGithub, FaArrowAltCircleUp, FaArrowAltCircleDown } from "react-icons/fa"
 
 function Navbar() {
-    const [pageHasLoaded, setPageIsLoaded] = useState(false)
+    const [animateOnMount, setAnimateOnMount] = useState(false)
+    const [prevSection, setPrevSection] = useState('#')
+    const [currentSection, setCurrentSection] = useState('#')
+    const [nextSection, setNextSection] = useState('#about')
     const { sections, activeNavIcon, handleNavIconChange } = useContext(Context)
 
     useEffect(() => {
         setTimeout(() => {
-            setPageIsLoaded(true)
+            setAnimateOnMount(true)
         }, 1)
+        setCurrentSection(activeNavIcon)
     }, [])
 
+    useEffect(() => {
+        setCurrentSection(activeNavIcon)
+    }, [activeNavIcon])
+
+    useEffect(() => {
+        const activeSection = sections.filter(section => section.url === currentSection)
+        const activeSectionID = activeSection.length > 0
+            ? activeSection[0].id
+            : 0
+        if (activeSectionID === 0) setPrevSection('#')
+        else setPrevSection(sections[activeSectionID - 1].url)
+        if (activeSectionID === 0) setNextSection('#about')
+        else if (activeSectionID === 4) setNextSection('#contact')
+        else setNextSection(sections[activeSectionID + 1].url)
+    }, [currentSection])
+
     function animateSidePanels(panel) {
-        return pageHasLoaded
+        return animateOnMount
             ? `navbar__${panel} load`
             : `navbar__${panel}`
     }
 
     const iconElements = sections.map(section => (
-        <NavIcon key={section.id} section={section}/>
+        <NavIcon key={section.id} section={section} />
     ))
 
     return (
@@ -46,12 +66,14 @@ function Navbar() {
             </div>
             <div className={animateSidePanels('scroll')}>
                 <a
-                    href=""
+                    href={prevSection}
+                    onClick={() => handleNavIconChange(prevSection)}
                 >
                     <FaArrowAltCircleUp />
                 </a>
                 <a
-                    href=""
+                    href={nextSection}
+                    onClick={() => handleNavIconChange(nextSection)}
                 >
                     <FaArrowAltCircleDown />
                 </a>
