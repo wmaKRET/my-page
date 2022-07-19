@@ -9,6 +9,9 @@ function Projects(){
             <h2>Projects</h2>
             <div className="projects__container">
                 <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
             </div>
         </section>
     )
