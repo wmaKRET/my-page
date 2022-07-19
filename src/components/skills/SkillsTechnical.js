@@ -3,34 +3,27 @@ import React from "react"
 import { BsCheck2Square } from "react-icons/bs"
 
 function SkillsTechnical() {
+    const technicalSkillsArray = [
+        'React',
+        'Javascript',
+        'Sass',
+        'CSS',
+        'HTML',
+        'Git'
+    ]
+
+    const skillElements = technicalSkillsArray.map(skill => (
+        <div className="skills__item">
+            <BsCheck2Square />
+            <h4>{skill}</h4>
+        </div>
+    ))
+
     return (
         <div className="skills__container">
             <h3>Technical Skills</h3>
             <div className="skills__list">
-                <div className="skills__item">
-                    <BsCheck2Square />
-                    <h4>React</h4>
-                </div>
-                <div className="skills__item">
-                    <BsCheck2Square />
-                    <h4>Javascript</h4>
-                </div>
-                <div className="skills__item">
-                    <BsCheck2Square />
-                    <h4>Sass</h4>
-                </div>
-                <div className="skills__item">
-                    <BsCheck2Square />
-                    <h4>CSS</h4>
-                </div>
-                <div className="skills__item">
-                    <BsCheck2Square />
-                    <h4>HTML</h4>
-                </div>
-                <div className="skills__item">
-                    <BsCheck2Square />
-                    <h4>Git</h4>
-                </div>
+                {skillElements}
             </div>
         </div>
     )
