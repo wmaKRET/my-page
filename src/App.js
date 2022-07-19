@@ -5,7 +5,7 @@ import Navbars from "./components/navbars/Navbars"
 import AboutMe from "./components/AboutMe"
 import Skills from "./components/Skills"
 import Projects from "./components/Projects"
-import Contact from "./components/Contact"
+import Contact from "./components/contact/Contact"
 import Footer from "./components/Footer"
 
 import "./scss/app.scss"

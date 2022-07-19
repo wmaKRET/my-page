@@ -256,7 +256,7 @@ a {
     .navbar {
         &__panel {
             left: 50%;
-            bottom: 2.5em;
+            bottom: 1em;
             transform: translateX(-50%);
         }
 
@@ -327,7 +327,6 @@ a {
     .hero {
         &__content {
             grid-template-columns: 1fr;
-
         }
     }
 }
@@ -409,10 +408,6 @@ a {
 
 @media screen and (min-width: 1025px) {
     .skills {
-        &__content {
-            grid-template-columns: 1fr 1fr;
-        }
-
         &__container:nth-of-type(1) {
             justify-self: right;
         }
@@ -423,7 +418,7 @@ a {
     }
 }
 
-@media screen and (min-width: 651px) and (max-width: 1024px) {
+@media screen and (min-width: 651px) {
     .skills {
 
         &__content {
@@ -507,6 +502,10 @@ a {
             transition: $transition;
         }
     }
+
+    &__socials {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 701px) {
@@ -527,12 +526,20 @@ a {
 
 @media screen and (max-width: 700px) {
     .contact {
+
         &__content {
             grid-template-columns: 1fr;
         }
 
         &__email,  &__form {
             margin-top: 2em;
+        }
+
+        &__socials {
+            display: flex;
+            justify-content: center;
+            margin: 2em 0;
+            gap: 2em;
         }
     }
 }
@@ -567,6 +574,14 @@ a {
             &:hover {
                 color: $background2;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer {
+        &__socials {
+            display: none;
         }
     }
 }
