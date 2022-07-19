@@ -1,21 +1,16 @@
 import React from "react"
 
+import skills from "./skillsData"
+
 import { BsCheck2Square } from "react-icons/bs"
 
 function SkillsTechnical() {
-    const technicalSkillsArray = [
-        'React',
-        'Javascript',
-        'Sass',
-        'CSS',
-        'HTML',
-        'Git'
-    ]
+    const technicalSkills = skills.technical
 
-    const skillElements = technicalSkillsArray.map(skill => (
-        <div className="skills__item">
+    const skillElements = technicalSkills.map(item => (
+        <div className="skills__item" key={item.id}>
             <BsCheck2Square />
-            <h4>{skill}</h4>
+            <h4>{item.skill}</h4>
         </div>
     ))
 

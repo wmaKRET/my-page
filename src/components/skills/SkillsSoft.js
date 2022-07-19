@@ -1,21 +1,16 @@
 import React from "react"
 
+import skills from "./skillsData"
+
 import { BsCheck2Square } from "react-icons/bs"
 
 function SkillsSoft() {
-    const softSkillsArray = [
-        'Communication',
-        'Teamwork',
-        'Problem solving',
-        'Critical thinking',
-        'Organizational skills',
-        'Time management'
-    ]
+    const softSkills = skills.soft
 
-    const skillElements = softSkillsArray.map(skill => (
-        <div className="skills__item">
+    const skillElements = softSkills.map(item => (
+        <div className="skills__item" key={item.id}>
             <BsCheck2Square />
-            <h4>{skill}</h4>
+            <h4>{item.skill}</h4>
         </div>
     ))
     return (
