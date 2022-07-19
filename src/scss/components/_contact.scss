@@ -1,5 +1,5 @@
 .contact {
-    &__content {
+    &__container {
         display: grid;
         gap: 1em;
     }
@@ -8,8 +8,8 @@
         padding: 1em;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
+        align-items: center;
         border: 1px solid $color;
         border-radius: 0.5em;
         transition: $transition;
@@ -33,12 +33,12 @@
         gap: 0.75em;
 
         &>input,
-        textarea {
+        >textarea {
             padding: 0.5em;
             background-color: $background;
+            color: $light;
             border: 1px solid $color;
             border-radius: 0.5em;
-            color: $light;
             transition: $transition;
 
             &:hover {
@@ -46,8 +46,8 @@
             }
 
             &:focus {
-                outline: 0;
                 color: $white;
+                outline: 0;
             }
         }
 
@@ -68,17 +68,31 @@
     }
 }
 
+/* --- // --- // MEDIA QUERIES // --- // --- */
+
+@media screen and (min-width: 1000px) {
+    .contact {
+
+        &__email,
+        &__form {
+            width: 60%;
+        }
+    }
+}
+
 @media screen and (min-width: 701px) {
     .contact {
-        &__content {
+        &__container {
             grid-template-columns: 1fr 1fr;
         }
 
         &__email {
+            width: 80%;
             justify-self: right;
         }
 
         &__form {
+            width: 80%;
             justify-self: left;
         }
     }
@@ -86,19 +100,19 @@
 
 @media screen and (max-width: 700px) {
     .contact {
-
-        &__content {
+        &__container {
             grid-template-columns: 1fr;
         }
 
-        &__email,  &__form {
+        &__email,
+        &__form {
             margin-top: 2em;
         }
 
         &__socials {
+            margin: 2em 0;
             display: flex;
             justify-content: center;
-            margin: 2em 0;
             gap: 2em;
         }
     }

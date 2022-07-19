@@ -6,11 +6,11 @@ import { BsPersonCircle, BsListCheck, BsFolderCheck } from "react-icons/bs"
 import { FaHome } from "react-icons/fa"
 import { FiMail } from "react-icons/fi"
 
-function NavIcon({section}){
+function NavIcon({ section }) {
     const { activeNavIcon, handleNavIconChange } = useContext(Context)
-    
-    function whichIcon(icon){
-        switch(icon) {
+
+    function whichIcon(icon) {
+        switch (icon) {
             case "FaHome":
                 return <FaHome size={28} />
             case "BsPersonCircle":

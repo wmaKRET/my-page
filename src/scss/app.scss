@@ -1,9 +1,12 @@
 @import "variables";
 @import "mixins";
 
+/* --- // --- // FONTS // --- // --- */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-/* // -- // GENERAL STYLES // -- // */
+
+/* --- // --- // STYLES // --- // --- */
 
 html {
     scroll-behavior: smooth;
@@ -21,17 +24,16 @@ html {
 }
 
 body {
-    overflow: hidden;
     background-color: $background;
     color: $white;
 }
 
 section {
-    height: 90vh;
+    min-height: 90vh;
 
     &>h2 {
-        text-align: center;
         color: $white;
+        text-align: center;
         letter-spacing: 0.2rem;
     }
 
@@ -39,6 +41,10 @@ section {
         color: $light;
         text-align: center;
     }
+}
+
+h1 {
+    font-size: 2rem;
 }
 
 h1,
@@ -50,13 +56,9 @@ h5 {
     cursor: default;
 }
 
-h1 {
-    font-size: 2rem;
-}
-
 a {
-    text-decoration: none;
     color: $color;
+    text-decoration: none;
     transition: $transition;
 
     &:hover {
@@ -66,10 +68,6 @@ a {
 
 .container {
     margin: 1em auto 0 auto;
-}
-
-.text-light {
-    color: $light;
 }
 
 .btn {
@@ -87,10 +85,11 @@ a {
     }
 }
 
-/* // -- // GENERAL MEDIA QUERIES // -- // */
+/* --- // --- // MEDIA QUERIES // --- // --- */
 
 @media screen and (min-width: 1025px) {
     body {
+        overflow: hidden;
         font-size: 1.25em;
     }
 
@@ -108,6 +107,10 @@ a {
 }
 
 @media screen and (min-width: 601px) and (max-width: 1024px) {
+    body {
+        overflow: hidden;
+    }
+
     section {
         padding-top: 6em;
 
@@ -115,7 +118,7 @@ a {
             margin-bottom: 2em;
         }
     }
-    
+
     .container {
         width: $width-md;
     }
@@ -129,11 +132,13 @@ a {
             margin-bottom: 0.5em;
         }
     }
-    
+
     .container {
         width: $width-sm;
     }
 }
+
+/* --- // --- // COMPONENTS STYLES // --- // --- */
 
 @import "./components/navbars";
 @import "./components/hero";

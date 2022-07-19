@@ -14,19 +14,19 @@ function Footer() {
                     href="#"
                     onClick={() => handleNavIconChange('#')}
                 >
-                    <FaHome size={28}/>
+                    <FaHome size={28} />
                 </a>
                 <a
                     href="https://www.linkedin.com/in/wojciech-kret/"
                     target="_blank"
                 >
-                    <FaLinkedin size={28}/>
+                    <FaLinkedin size={28} />
                 </a>
                 <a
                     href="https://github.com/wmaKRET"
                     target="_blank"
                 >
-                    <FaGithub size={28}/>
+                    <FaGithub size={28} />
                 </a>
             </div>
         </footer>

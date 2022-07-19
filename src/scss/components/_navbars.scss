@@ -1,11 +1,11 @@
-/* // -- // NAVBAR STYLES + MEDIA QUERIES // -- // */
-
 .navbar {
     &__panel {
         width: max-content;
         padding: 0.5em 1em;
         position: fixed;
+        left: 50%;
         z-index: 2;
+        transform: translateX(-50%);
         display: flex;
         gap: 1em;
         background-color: rgba(0, 0, 0, 0.3);
@@ -29,17 +29,18 @@
         }
     }
 
-    &__socials, &__scroll {
+    &__socials,
+    &__scroll {
+        padding: 0.5em 0.5em 0 0.5em;
         position: fixed;
         top: 50%;
         z-index: 2;
+        transform: translateY(1000px);
         display: flex;
         flex-direction: column;
-        scale: 2;
-        padding: 0.5em 0.5em 0 0.5em;
         background-color: rgba(0, 0, 0, 0.3);
         border-radius: 0.5em;
-        transform: translateY(1000px);
+        scale: 2;
         transition: $transition-navbar;
     }
 
@@ -48,12 +49,12 @@
     }
 }
 
+/* --- // --- // MEDIA QUERIES // --- // --- */
+
 @media screen and (min-width: 1025px) {
     .navbar {
         &__panel {
-            left: 50%;
             bottom: 5em;
-            transform: translateX(-50%);
         }
 
         &__socials {
@@ -69,11 +70,9 @@
 @media screen and (min-width: 601px) and (max-width: 1024px) {
     .navbar {
         &__panel {
-            left: 50%;
             bottom: 5em;
-            transform: translateX(-50%);
         }
-        
+
         &__socials {
             left: 2em;
         }
@@ -87,15 +86,10 @@
 @media screen and (max-width: 600px) {
     .navbar {
         &__panel {
-            left: 50%;
             bottom: 1em;
-            transform: translateX(-50%);
         }
 
-        &__socials {
-            display: none;
-        }
-
+        &__socials,
         &__scroll {
             display: none;
         }
