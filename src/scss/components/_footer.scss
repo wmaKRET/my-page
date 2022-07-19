@@ -1,0 +1,39 @@
+.footer {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient($background, $color);
+    color: $background;
+
+    &__title {
+        position: absolute;
+        bottom: 1.5em;
+        left: 1em;
+        font-size: 0.75rem;
+    }
+
+    &__socials {
+        position: absolute;
+        bottom: 1.5em;
+        right: 2em;
+
+        &>a {
+            padding: 0 1em;
+            color: $background;
+
+            &:hover {
+                color: $background2;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer {
+        &__socials {
+            display: none;
+        }
+    }
+}

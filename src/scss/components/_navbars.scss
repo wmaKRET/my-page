@@ -1,0 +1,103 @@
+/* // -- // NAVBAR STYLES + MEDIA QUERIES // -- // */
+
+.navbar {
+    &__panel {
+        width: max-content;
+        padding: 0.5em 1em;
+        position: fixed;
+        z-index: 2;
+        display: flex;
+        gap: 1em;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 0.5em;
+    }
+
+    &__item {
+        padding: 0.5em 0.5em 0 0.5em;
+        background: transparent;
+        border-radius: 0.5em;
+        transition: $transition;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: $light;
+        }
+
+        &.active {
+            background-color: $background;
+            color: $white;
+        }
+    }
+
+    &__socials, &__scroll {
+        position: fixed;
+        top: 50%;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        scale: 2;
+        padding: 0.5em 0.5em 0 0.5em;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 0.5em;
+        transform: translateY(1000px);
+        transition: $transition-navbar;
+    }
+
+    .load {
+        transform: translateY(0);
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .navbar {
+        &__panel {
+            left: 50%;
+            bottom: 5em;
+            transform: translateX(-50%);
+        }
+
+        &__socials {
+            left: 6em;
+        }
+
+        &__scroll {
+            right: 6em;
+        }
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .navbar {
+        &__panel {
+            left: 50%;
+            bottom: 5em;
+            transform: translateX(-50%);
+        }
+        
+        &__socials {
+            left: 2em;
+        }
+
+        &__scroll {
+            right: 2em;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        &__panel {
+            left: 50%;
+            bottom: 1em;
+            transform: translateX(-50%);
+        }
+
+        &__socials {
+            display: none;
+        }
+
+        &__scroll {
+            display: none;
+        }
+    }
+}

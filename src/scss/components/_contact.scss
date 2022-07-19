@@ -1,0 +1,105 @@
+.contact {
+    &__content {
+        display: grid;
+        gap: 1em;
+    }
+
+    &__email {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $color;
+        border-radius: 0.5em;
+        transition: $transition;
+
+        &>h5 {
+            color: $light;
+        }
+
+        &>a {
+            font-size: 1.25rem;
+        }
+
+        &:hover {
+            box-shadow: 0 0 20px $color;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+
+        &>input,
+        textarea {
+            padding: 0.5em;
+            background-color: $background;
+            border: 1px solid $color;
+            border-radius: 0.5em;
+            color: $light;
+            transition: $transition;
+
+            &:hover {
+                box-shadow: 0 0 20px $color;
+            }
+
+            &:focus {
+                outline: 0;
+                color: $white;
+            }
+        }
+
+        &>textarea {
+            height: 8em;
+            resize: none;
+        }
+
+        &>button {
+            width: 100%;
+            background-color: $background;
+            transition: $transition;
+        }
+    }
+
+    &__socials {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 701px) {
+    .contact {
+        &__content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &__email {
+            justify-self: right;
+        }
+
+        &__form {
+            justify-self: left;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .contact {
+
+        &__content {
+            grid-template-columns: 1fr;
+        }
+
+        &__email,  &__form {
+            margin-top: 2em;
+        }
+
+        &__socials {
+            display: flex;
+            justify-content: center;
+            margin: 2em 0;
+            gap: 2em;
+        }
+    }
+}

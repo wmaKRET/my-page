@@ -1,0 +1,86 @@
+.skills {
+
+    &__content {
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        justify-items: center;
+    }
+
+    &__container {
+        margin: 1em 2em;
+        width: 16em;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        transition: $transition;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+
+        &>h3 {
+            padding: 0.5em;
+            background-color: $color;
+            border-top-left-radius: 0.5em;
+            border-top-right-radius: 0.5em;
+            text-align: center;
+            letter-spacing: 0.1em;
+            cursor: default;
+            color: $background2;
+        }
+
+        &:hover {
+            box-shadow: 0 0 20px $color;
+        }
+    }
+
+    &__list {
+        border: 1px solid $color;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 0.5em 1em;
+        transition: $transition;
+        color: $light;
+
+        &>h4 {
+            padding-left: 0.5em;
+        }
+
+        &:hover {
+            color: $white;
+            cursor: default;
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .skills {
+        &__container:nth-of-type(1) {
+            justify-self: right;
+        }
+
+        &__container:nth-of-type(2) {
+            justify-self: left;
+        }
+    }
+}
+
+@media screen and (min-width: 651px) {
+    .skills {
+
+        &__content {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .skills {
+
+        &__content {
+            grid-template-columns: 1fr;
+        }
+    }
+}
