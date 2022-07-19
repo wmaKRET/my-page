@@ -4,7 +4,7 @@ import Hero from "./components/Hero"
 import Navbars from "./components/navbars/Navbars"
 import AboutMe from "./components/AboutMe"
 import Skills from "./components/skills/Skills"
-import Projects from "./components/Projects"
+import Projects from "./components/projects/Projects"
 import Contact from "./components/contact/Contact"
 import Footer from "./components/Footer"
 
