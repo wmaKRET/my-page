@@ -13,6 +13,7 @@ function SkillsSoft() {
             <h4>{item.skill}</h4>
         </div>
     ))
+    
     return (
         <div className="skills__container">
             <h3>Soft Skills</h3>
