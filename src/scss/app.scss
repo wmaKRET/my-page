@@ -12,10 +12,6 @@ html {
     scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -89,7 +85,6 @@ a {
 
 @media screen and (min-width: 1025px) {
     body {
-        //overflow: hidden;
         font-size: 1.25em;
     }
 
@@ -107,10 +102,6 @@ a {
 }
 
 @media screen and (min-width: 601px) and (max-width: 1024px) {
-    body {
-        //overflow: hidden;
-    }
-
     section {
         padding-top: 6em;
 
