@@ -1,6 +1,7 @@
 .projects {
     &__container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 1em;
     }
@@ -11,7 +12,6 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    background-color: $background;
     border: 1px solid $color;
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
@@ -22,17 +22,16 @@
     }
 
     &__title {
-        padding: 0.5em;
         width: 100%;
+        padding: 0.25em;
         background-color: $color;
         color: $light;
-        padding-bottom: 0.25em;
         text-align: center;
     }
 
     &__img {
-        position: relative;
         height: 300px;
+        position: relative;
         overflow: hidden;
 
         &-shadow {
@@ -70,36 +69,18 @@
 /* --- // --- // MEDIA QUERIES // --- // --- */
 
 @media screen and (min-width: 1025px) {
-    .projects {
-        &__container {
-            flex-wrap: wrap;
-        }
-    }
-
     .card {
         width: 400px;
     }
 }
 
 @media screen and (min-width: 601px) and (max-width: 1024px) {
-    .projects {
-        &__container {
-            flex-wrap: wrap;
-        }
-    }
-
     .card {
         width: 60%;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .projects {
-        &__container {
-            flex-wrap: wrap;
-        }
-    }
-
     .card {
         width: 80%;
     }
