@@ -1,22 +1,20 @@
 .projects {
     &__container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        flex-wrap: wrap;
-        justify-items: center;
+        display: flex;
+        justify-content: center;
         gap: 1em;
     }
 }
 
 .card {
-    padding: 0.5em;
-    min-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    background-color: $color;
-    border-radius: 0.5em;
+    background-color: $background;
+    border: 1px solid $color;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
     transition: $transition;
 
     &:hover {
@@ -24,17 +22,41 @@
     }
 
     &__title {
-        color: $background;
+        padding: 0.5em;
+        width: 100%;
+        background-color: $color;
+        color: $light;
         padding-bottom: 0.25em;
+        text-align: center;
     }
 
     &__img {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
 
+        &-shadow {
+            @include inset-shadow();
+            box-shadow: inset 0px 0px 5px 15px $background;
+        }
+
+        & > img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__description {
+        height: 3em;
+        margin: 0.5em 1em;
+        text-align: justify;
     }
 
     &__btns {
-        padding: 0.5em;
+        width: 100%;
+        padding: 0.5em 1em;
         display: flex;
+        justify-content: space-between;
         gap: 1.5em;
         background-color: $background;
         border-radius: 0.5em;
@@ -43,4 +65,42 @@
     &__btn {
         cursor: pointer;
     }   
+}
+
+/* --- // --- // MEDIA QUERIES // --- // --- */
+
+@media screen and (min-width: 1025px) {
+    .projects {
+        &__container {
+            flex-wrap: wrap;
+        }
+    }
+
+    .card {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .projects {
+        &__container {
+            flex-wrap: wrap;
+        }
+    }
+
+    .card {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .projects {
+        &__container {
+            flex-wrap: wrap;
+        }
+    }
+
+    .card {
+        width: 80%;
+    }
 }

@@ -1,20 +1,47 @@
 import React from "react"
 
-import projectimg from "../../assets/projectimg.png"
+import nameFootballTeams from "../../assets/name-football-teams.png"
+import miniShop from "../../assets/mini-shop.png"
+import ticTacToe from "../../assets/tictactoe.png"
 
-function ProjectCard(){
+function ProjectCard({ project }) {
+    function whichImg(nameUrl) {
+        switch (nameUrl) {
+            case "name-football-teams":
+                return nameFootballTeams
+            case "mini-shop":
+                return miniShop
+            case "tictactoe":
+                return ticTacToe
+            default:
+                return null
+        }
+    }
+
     return (
         <div className="card">
-            <h2 className="card__title">project title</h2>
-            <img 
-                src={projectimg} 
-                className="card__img"
-                alt="project screenshot" 
-            />
-            <p className="card__description">Short description</p>
+            <h2 className="card__title">{project.name}</h2>
+            <div className="card__img">
+                <div className="card__img-shadow"></div>
+                <img
+                    src={whichImg(project.url)}
+                    alt="project screenshot"
+                />
+            </div>
+            <p className="card__description">{project.description}</p>
             <div className="card__btns">
-                <a className="card__btn">github</a>
-                <a className="card__btn">gh pages</a>
+                <a
+                    href={project.githubRepo}
+                    className="card__btn"
+                >
+                    github
+                </a>
+                <a
+                    href={project.ghPage}
+                    className="card__btn"
+                >
+                    gh pages
+                </a>
             </div>
         </div>
     )
