@@ -1,14 +1,18 @@
-import React from "react"
+import React, { useContext } from "react"
+
+import { Context } from "../Context"
 
 import { FaHome, FaLinkedin, FaGithub } from "react-icons/fa"
 
 function Footer() {
+    const { handleNavIconChange } = useContext(Context)
     return (
         <footer className="footer">
             <p className="footer__title">wmaKRET</p>
             <div className="footer__socials">
                 <a
                     href="#"
+                    onClick={() => handleNavIconChange('#')}
                 >
                     <FaHome size={28}/>
                 </a>
