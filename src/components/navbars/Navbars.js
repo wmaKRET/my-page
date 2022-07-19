@@ -8,7 +8,6 @@ import { FaLinkedin, FaGithub, FaArrowAltCircleUp, FaArrowAltCircleDown } from "
 function Navbar() {
     const [animateOnMount, setAnimateOnMount] = useState(false)
     const [prevSection, setPrevSection] = useState('#')
-    const [currentSection, setCurrentSection] = useState('#')
     const [nextSection, setNextSection] = useState('#about')
     const { sections, activeNavIcon, handleNavIconChange } = useContext(Context)
 
@@ -16,15 +15,10 @@ function Navbar() {
         setTimeout(() => {
             setAnimateOnMount(true)
         }, 1)
-        setCurrentSection(activeNavIcon)
     }, [])
 
     useEffect(() => {
-        setCurrentSection(activeNavIcon)
-    }, [activeNavIcon])
-
-    useEffect(() => {
-        const activeSection = sections.filter(section => section.url === currentSection)
+        const activeSection = sections.filter(section => section.url === activeNavIcon)
         const activeSectionID = activeSection.length > 0
             ? activeSection[0].id
             : 0
@@ -33,7 +27,7 @@ function Navbar() {
         if (activeSectionID === 0) setNextSection('#about')
         else if (activeSectionID === 4) setNextSection('#contact')
         else setNextSection(sections[activeSectionID + 1].url)
-    }, [currentSection])
+    }, [activeNavIcon])
 
     function animateSidePanels(panel) {
         return animateOnMount
