@@ -12,20 +12,20 @@ function Hero() {
             <h2>Wojciech Kret</h2>
             <h5 className="hero-margin">and currently I am looking for a job as a Frontend Developer</h5>
             <div className="hero__container">
-                    <a 
-                        className="hero__btn" 
-                        href={CV} 
-                        target="_blank"
-                    >
-                        CV
-                    </a>
-                    <a 
-                        className="hero__btn" 
-                        href="#about"
-                        onClick={() => handleNavIconChange('#about')}
-                    >
-                        About Me
-                    </a>
+                <a
+                    className="hero__btn"
+                    href={CV}
+                    target="_blank"
+                >
+                    CV
+                </a>
+                <a
+                    className="hero__btn"
+                    href="#about"
+                    onClick={() => handleNavIconChange('#about')}
+                >
+                    About Me
+                </a>
             </div>
             <div className="hero-shadowbox"></div>
         </section>

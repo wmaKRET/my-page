@@ -4,9 +4,9 @@ import ProjectCard from "./ProjectCard"
 
 import projectsData from "./projectsData"
 
-function Projects(){
+function Projects() {
     const projectElements = projectsData.map(project => (
-        <ProjectCard key={project.id} project={project}/>
+        <ProjectCard key={project.id} project={project} />
     ))
     return (
         <section className="projects" id="projects">

@@ -3,7 +3,7 @@ import React, { useState } from "react"
 function ContactForm() {
     const [contactData, setContactData] = useState(emptyContactData())
 
-    function emptyContactData(){
+    function emptyContactData() {
         return {
             name: '',
             email: '',
@@ -11,15 +11,15 @@ function ContactForm() {
         }
     }
 
-    function handleChange(event){
-        const {name, value} = event.target
+    function handleChange(event) {
+        const { name, value } = event.target
         setContactData(prevState => ({
             ...prevState,
             [name]: value
         }))
     }
 
-    function handleSubmit(event){
+    function handleSubmit(event) {
         event.preventDefault()
         // You got me! ;) it is not really sending a message
         // on real page we could for example use EmailJS :)
