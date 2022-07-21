@@ -32,12 +32,14 @@ function ProjectCard({ project }) {
             <div className="card__btns">
                 <a
                     href={project.githubRepo}
+                    target="_blank"
                     className="card__btn"
                 >
                     github
                 </a>
                 <a
                     href={project.ghPage}
+                    target="_blank"
                     className="card__btn"
                 >
                     gh pages
