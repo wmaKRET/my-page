@@ -2,7 +2,7 @@ import React from "react"
 
 import Hero from "./components/Hero"
 import Navbars from "./components/navbars/Navbars"
-import AboutMe from "./components/AboutMe"
+import AboutMe from "./components/aboutme/AboutMe"
 import Skills from "./components/skills/Skills"
 import Projects from "./components/projects/Projects"
 import Contact from "./components/contact/Contact"
