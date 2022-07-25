@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/my-page/static/css/main.c14890b7.css",
+    "main.js": "/my-page/static/js/main.99e21d40.js",
+    "static/media/me_hitchhiking.jpg": "/my-page/static/media/me_hitchhiking.e2195a93fe3c99cb879d.jpg",
+    "static/media/me_sport.JPG": "/my-page/static/media/me_sport.10c1ef9896be5985eb2e.JPG",
+    "static/media/hero-bg.jpg": "/my-page/static/media/hero-bg.c7317ce465b4451e9eb1.jpg",
+    "static/media/mini-shop.png": "/my-page/static/media/mini-shop.8d807e149c8a20dd3ae3.png",
+    "static/media/me.png": "/my-page/static/media/me.b4a5c9e25d48e588abf8.png",
+    "static/media/cv.pdf": "/my-page/static/media/cv.ea7f21cbf4e387bb01c5.pdf",
+    "static/media/name-football-teams.png": "/my-page/static/media/name-football-teams.7a9e7af3d907d791d2f0.png",
+    "static/media/tictactoe.png": "/my-page/static/media/tictactoe.683330945c4747e99a1a.png",
+    "static/media/slick.svg": "/my-page/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/my-page/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/my-page/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/my-page/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/my-page/index.html",
+    "main.c14890b7.css.map": "/my-page/static/css/main.c14890b7.css.map",
+    "main.99e21d40.js.map": "/my-page/static/js/main.99e21d40.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c14890b7.css",
+    "static/js/main.99e21d40.js"
+  ]
+}
