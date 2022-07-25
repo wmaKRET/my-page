@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 const Context = React.createContext()
 
 function ContextProvider({ children }){
-    const URL = "../sections.JSON"
+    const URL = "https://raw.githubusercontent.com/wmaKRET/my-page/master/src/sections.JSON"
 
     const [sections, setSections] = useState([])
     const [activeNavIcon, setActiveNavIcon] = useState('#')
